@@ -1,0 +1,170 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink-900: #080620;
+  --ink-800: #120e38;
+  --ink-700: #1e1a52;
+  --ink-600: #2e2870;
+  --amber-400: #fbbf24;
+  --amber-300: #fcd34d;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--ink-900);
+  color: #e8e6f0;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #2e2870; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #403888; }
+
+/* Selection */
+::selection { background: #403888; color: #fcd34d; }
+
+/* Typography */
+.font-display { font-family: 'Playfair Display', serif; }
+.font-mono-custom { font-family: 'DM Mono', monospace; }
+
+/* Glass effect */
+.glass {
+  background: rgba(18, 14, 56, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.glass-light {
+  background: rgba(30, 26, 82, 0.4);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Glow effects */
+.glow-amber { box-shadow: 0 0 30px rgba(251, 191, 36, 0.15); }
+.glow-purple { box-shadow: 0 0 30px rgba(64, 56, 136, 0.4); }
+
+/* Animated gradient background */
+.gradient-bg {
+  background: radial-gradient(ellipse at 20% 20%, #1e1a52 0%, transparent 60%),
+              radial-gradient(ellipse at 80% 80%, #120e38 0%, transparent 60%),
+              radial-gradient(ellipse at 50% 50%, #080620 0%, #080620 100%);
+}
+
+/* Amber accent line */
+.accent-line {
+  background: linear-gradient(90deg, transparent, #fbbf24, transparent);
+  height: 1px;
+}
+
+/* Card hover */
+.card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(64, 56, 136, 0.3);
+  border-color: rgba(251, 191, 36, 0.2) !important;
+}
+
+/* Progress bar */
+.progress-bar {
+  background: linear-gradient(90deg, #fbbf24, #f59e0b);
+  border-radius: 999px;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Fade animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-fade-up { animation: fadeUp 0.5s ease forwards; }
+.animate-fade-in { animation: fadeIn 0.4s ease forwards; }
+.animate-pulse-soft { animation: pulse-soft 2s ease-in-out infinite; }
+
+.skeleton {
+  background: linear-gradient(90deg, #1e1a52 25%, #2e2870 50%, #1e1a52 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 4px;
+}
+
+/* Flashcard flip */
+.flip-card { perspective: 1200px; }
+.flip-card-inner {
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+  position: relative;
+}
+.flip-card-inner.flipped { transform: rotateY(180deg); }
+.flip-card-front, .flip-card-back {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.flip-card-back { transform: rotateY(180deg); }
+
+/* Input styles */
+.input-dark {
+  background: rgba(18, 14, 56, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e8e6f0;
+  transition: border-color 0.2s;
+}
+.input-dark:focus {
+  outline: none;
+  border-color: rgba(251, 191, 36, 0.5);
+  box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.08);
+}
+
+/* Btn styles */
+.btn-primary {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  color: #080620;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+.btn-primary:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(251, 191, 36, 0.3);
+}
+.btn-primary:active { transform: translateY(0); }
+
+.btn-ghost {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: #c0bdd6;
+  transition: all 0.2s;
+}
+.btn-ghost:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.15);
+  color: #e8e6f0;
+}
+
+/* Difficulty badges */
+.badge-easy { background: rgba(52, 211, 153, 0.15); color: #34d399; border: 1px solid rgba(52, 211, 153, 0.2); }
+.badge-medium { background: rgba(251, 191, 36, 0.15); color: #fbbf24; border: 1px solid rgba(251, 191, 36, 0.2); }
+.badge-hard { background: rgba(251, 113, 133, 0.15); color: #fb7185; border: 1px solid rgba(251, 113, 133, 0.2); }
