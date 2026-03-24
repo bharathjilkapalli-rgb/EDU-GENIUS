@@ -253,3 +253,10 @@ Update `vite.config.js` proxy target for production.
 ## 📄 License
 
 MIT License — built for educational purposes as part of Capabl Track B project.
+## 🎥 Demo Video
+[Watch Demo](https://youtube.com/shorts/jA6t9NVp5XQ?si=dFqK8xljmq7FQigw)
+## 📸 Screenshots
+
+![Screenshot 1](image1.png)
+![Screenshot 2](image2.png)
+![Screenshot 3](image3.png)
